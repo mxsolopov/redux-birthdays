@@ -1,0 +1,15 @@
+.empty-msg {
+	text-align: center;
+	padding: 20px;
+}
+
+td {
+	text-align: center;
+}
+
+.edit-btn,
+.delete-btn {
+	width: 40px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
