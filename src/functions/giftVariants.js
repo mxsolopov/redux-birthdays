@@ -86,12 +86,12 @@ function createGiftsVariantsForName(gifts) {
 
 function createGiftVariantsForAge(gifts) {
 	let map = new Map()
-	map.set([0, 5], createArrOfGifts(gifts, 5))
+	map.set([-Infinity, 5], createArrOfGifts(gifts, 5))
 	map.set([6, 12], createArrOfGifts(gifts, 5))
 	map.set([13, 18], createArrOfGifts(gifts, 5))
 	map.set([19, 35], createArrOfGifts(gifts, 5))
 	map.set([36, 65], createArrOfGifts(gifts, 5))
-	map.set([66, 120], createArrOfGifts(gifts, 5))
+	map.set([66, Infinity], createArrOfGifts(gifts, 5))
 	return map
 }
 

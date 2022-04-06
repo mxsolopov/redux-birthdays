@@ -25,3 +25,11 @@ button {
 	width: 220px;
 	padding: 10px;
 }
+
+input::-webkit-calendar-picker-indicator {
+	display: none;
+}
+
+input::calendar-picker-indicator {
+	display: none;
+}

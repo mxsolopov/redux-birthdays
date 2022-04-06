@@ -2,9 +2,11 @@
 	border: 1px solid black;
 	padding: 10px;
 	display: flex;
+	width: 400px;
 	justify-content: space-between;
 	align-items: center;
 	animation: 1s linear 0s infinite pulse;
+	background: white;
 }
 
 .notification button {
@@ -20,7 +22,12 @@
 	}
 }
 
-.paused {
-	animation-play-state: paused;
-	opacity: 0.5;
+@keyframes fadeOutRight {
+	0% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		transform: translate3d(100%, 0, 0);
+	}
 }

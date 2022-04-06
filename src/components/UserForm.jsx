@@ -1,4 +1,4 @@
-import '../style/UserForm.css'
+import './UserForm.css'
 import { nanoid } from '@reduxjs/toolkit'
 
 import React, { useState } from 'react'
@@ -6,7 +6,12 @@ import { useDispatch } from 'react-redux'
 import { addUser } from '../store/usersSlice'
 
 const UserForm = () => {
-	const initUser = { name: '', date: '', id: nanoid(), sex: 'male', gift: '' }
+	const initUser = {
+		name: '',
+		date: '',
+		id: nanoid(),
+		sex: 'male',
+	}
 	const [user, setUser] = useState(initUser)
 	const [disable, setDisable] = useState(true)
 
@@ -20,6 +25,8 @@ const UserForm = () => {
 		}
 	}
 
+	const namePattern = /^[А-ЯЁа-яё ]+$/
+
 	return (
 		<>
 			<div className='wrapper'>
@@ -30,7 +37,13 @@ const UserForm = () => {
 						type='text'
 						value={user.name}
 						onChange={event => {
-							setUser({ ...user, name: event.target.value })
+							const value = event.target.value
+							if (value === '' || namePattern.test(value)) {
+								setUser({
+									...user,
+									name: value,
+								})
+							}
 							checkDisableButton()
 						}}
 						onBlur={() => checkDisableButton()}
@@ -64,7 +77,7 @@ const UserForm = () => {
 					</div>
 				</div>
 				<div>
-					<label htmlFor='name-input'>Дата рождения:</label>
+					<label htmlFor='date-input'>Дата рождения:</label>
 					<input
 						id='date-input'
 						type='date'

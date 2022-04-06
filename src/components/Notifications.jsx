@@ -1,6 +1,6 @@
-import '../style/Notifications.css'
+import './Notifications.css'
 import { useSelector } from 'react-redux'
-import React, { useState } from 'react'
+import React from 'react'
 import Notification from './Notification'
 
 import useSound from 'use-sound'
@@ -8,8 +8,8 @@ import alarm from '../sounds/alarm.mp3'
 
 const Notifications = () => {
 	const [play, { stop }] = useSound(alarm)
-	const [isPlaying, setIsPlaying] = useState(false)
 	const users = useSelector(state => state.users.users)
+	const notification = useSelector(state => state.notification.notification)
 	let now = new Date()
 
 	setInterval(() => {
@@ -17,7 +17,7 @@ const Notifications = () => {
 	}, 1000 * 60 * 60)
 
 	return (
-		<div className='notifications'>
+		<div className={notification ? 'notifications-view' : 'notifications-hide'}>
 			<div className='notifications-wrapper'>
 				{users.length > 0 ? (
 					users.map((user, index) => (
@@ -27,8 +27,6 @@ const Notifications = () => {
 							now={now}
 							play={play}
 							stop={stop}
-							isPlaying={isPlaying}
-							setIsPlaying={setIsPlaying}
 						/>
 					))
 				) : (

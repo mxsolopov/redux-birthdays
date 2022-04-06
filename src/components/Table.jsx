@@ -1,4 +1,4 @@
-import '../style/Table.css'
+import './Table.css'
 import { useSelector } from 'react-redux'
 
 import React from 'react'
@@ -14,7 +14,7 @@ const Table = () => {
 					<td className='name-col'>Имя</td>
 					<td className='date-col'>Дата рождения</td>
 					<td className='years-col'>Лет</td>
-					<td className='gifts-col'>Список подарков</td>
+					<td className='gifts-col'>Варианты подарков</td>
 					<td className='actions-col'>Действия</td>
 				</tr>
 			</thead>
@@ -27,7 +27,6 @@ const Table = () => {
 							date={user.date}
 							id={user.id}
 							sex={user.sex}
-							gift={user.gift}
 						/>
 					))
 				) : (

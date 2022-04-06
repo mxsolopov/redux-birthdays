@@ -1,0 +1,22 @@
+.notifications-hide {
+	display: none;
+}
+
+.notifications-view {
+	display: block;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.15);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.notifications-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}

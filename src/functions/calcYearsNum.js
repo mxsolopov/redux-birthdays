@@ -11,6 +11,9 @@ const calcYearsNum = date => {
 	) {
 		years = years + 1
 	}
+	if (isNaN(years)) {
+		years = 0
+	}
 	return years
 }
 
