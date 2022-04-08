@@ -1,36 +1,15 @@
 import './TableRow.css'
 
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { removeUser, editUser } from '../store/usersSlice'
 import calcYearsNum from '../functions/calcYearsNum'
-import giftsVariants from '../functions/giftVariants'
 
 import Select from './Select'
 
-const TableRow = ({ name, date, id, sex }) => {
+const TableRow = ({ name, date, id }) => {
 	const [isEdit, setIsEdit] = useState(false)
 	const dispatch = useDispatch()
-	const age = calcYearsNum(date)
-
-	let gifts = useSelector(
-		state => state.users.users.find(user => user.id === id).gifts
-	)
-
-	if (!gifts) {
-		for (let [key, elem] of giftsVariants[sex][name[0].toLowerCase()]) {
-			if (key[0] <= age && key[1] >= age) {
-				gifts = elem
-				break
-			}
-		}
-	}
-
-	useEffect(() => {
-		if (!gifts) {
-			dispatch(editUser({ id: id, item: 'gifts', content: gifts }))
-		}
-	})
 
 	const startEditBtn = (
 		<button className='edit-btn' onClick={() => setIsEdit(!isEdit)}>
@@ -54,6 +33,7 @@ const TableRow = ({ name, date, id, sex }) => {
 				) : (
 					<input
 						value={name}
+						className='edit-input'
 						onChange={event => {
 							const value = event.target.value
 							if (value === '' || namePattern.test(value)) {
@@ -69,6 +49,7 @@ const TableRow = ({ name, date, id, sex }) => {
 				) : (
 					<input
 						type='date'
+						className='edit-input'
 						value={date}
 						max={now.getFullYear() - now.getMonth() - now.getDate()}
 						onChange={event =>
@@ -81,7 +62,7 @@ const TableRow = ({ name, date, id, sex }) => {
 			</td>
 			<td>{calcYearsNum(date)}</td>
 			<td>
-				<Select id={id} gifts={gifts} />
+				<Select id={id} />
 			</td>
 			<td>
 				{!isEdit ? startEditBtn : endEditBtn}

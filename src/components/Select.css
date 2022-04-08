@@ -1,4 +1,8 @@
 select {
-	padding: 5px;
+	padding: 10px;
 	width: 200px;
+	border-color: #c4cccc;
+	background-color: #f4f4fc;
+	border-radius: 99px;
+	position: relative;
 }

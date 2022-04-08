@@ -3,13 +3,17 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editUser } from '../store/usersSlice'
 
-const Select = ({ id, gifts }) => {
-	let currentGift = useSelector(
+const Select = ({ id }) => {
+	const dispatch = useDispatch()
+
+	const currentGift = useSelector(
 		state => state.users.users.find(user => user.id === id).currentGift
 	)
-	const [value, setValue] = useState(currentGift ? currentGift : '')
 
-	const dispatch = useDispatch()
+	const gifts = useSelector(
+		state => state.users.users.find(user => user.id === id).gifts
+	)
+	const [value, setValue] = useState(currentGift !== '' ? currentGift : '')
 
 	return (
 		<select

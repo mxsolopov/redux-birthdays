@@ -1,29 +1,62 @@
-.wrapper {
+.form {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	padding: 2% 10% 1% 10%;
+	background-color: white;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.05);
+	z-index: 9999;
 }
 
 input[type='text'],
 input[type='date'] {
-	padding: 10px;
-	width: 220px;
+	padding: 12px;
+	width: 100%;
+	border-radius: 99px;
+	border: 1px solid #c4cccc;
+	background-color: #f4f4fc;
 }
 
 .sex-wrapper {
 	display: flex;
 	justify-content: center;
-	margin-top: 10px;
-	padding-left: 45px;
+	position: absolute;
+	right: 8%;
+	top: -2%;
 }
 
 label {
 	margin-right: 10px;
+	font-size: 12px;
+	padding-left: 12px;
+	margin-bottom: 4px;
 }
 
-button {
-	width: 220px;
-	padding: 10px;
+.sex-wrapper label {
+	padding: 0px;
+}
+
+.add-button {
+	width: 100%;
+	padding: 12px;
+	border-radius: 99px;
+	background-color: #5484f4;
+	color: white;
+	border: none;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.1);
+	transform: translateY(50%);
+}
+.add-button:disabled {
+	background-color: #f4f4fc;
+	color: rgb(158, 157, 157);
+	/* border: 1px solid gray; */
+	box-shadow: none;
 }
 
 input::-webkit-calendar-picker-indicator {
@@ -32,4 +65,13 @@ input::-webkit-calendar-picker-indicator {
 
 input::calendar-picker-indicator {
 	display: none;
+}
+
+.form-item-wrap {
+	width: 33.333%;
+	display: flex;
+	flex-direction: column;
+	padding: 0 2%;
+	justify-content: flex-start;
+	position: relative;
 }

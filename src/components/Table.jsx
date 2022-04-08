@@ -1,4 +1,6 @@
 import './Table.css'
+import Lottie from 'lottie-react'
+import birthdayCelebration from '../lottie/birthdayCelebration.json'
 import { useSelector } from 'react-redux'
 
 import React from 'react'
@@ -8,36 +10,43 @@ const Table = () => {
 	const users = useSelector(state => state.users.users)
 
 	return (
-		<table>
-			<thead>
-				<tr>
-					<td className='name-col'>Имя</td>
-					<td className='date-col'>Дата рождения</td>
-					<td className='years-col'>Лет</td>
-					<td className='gifts-col'>Варианты подарков</td>
-					<td className='actions-col'>Действия</td>
-				</tr>
-			</thead>
-			<tbody>
-				{users.length > 0 ? (
-					users.map((user, index) => (
-						<TableRow
-							key={index}
-							name={user.name}
-							date={user.date}
-							id={user.id}
-							sex={user.sex}
-						/>
-					))
-				) : (
+		<>
+			<table>
+				<thead>
 					<tr>
-						<td colSpan='5' className='empty-msg'>
-							Нет данных. Добавьте первого родственника
-						</td>
+						<th className='name-col'>Имя</th>
+						<th className='date-col'>Дата рождения</th>
+						<th className='years-col'>Лет</th>
+						<th className='gifts-col'>Варианты подарков</th>
+						<th className='actions-col'>Действия</th>
 					</tr>
-				)}
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					{users.length > 0 ? (
+						users.map((user, index) => (
+							<TableRow
+								key={index}
+								name={user.name}
+								date={user.date}
+								id={user.id}
+							/>
+						))
+					) : (
+						<tr>
+							<td colSpan='5' className='empty-msg'>
+								<div className='animation-container'>
+									<Lottie animationData={birthdayCelebration} />
+								</div>
+								<div className='empty-msg-text'>
+									Нет данных. Добавьте сведения о днях рождения родственников и
+									друзей.
+								</div>
+							</td>
+						</tr>
+					)}
+				</tbody>
+			</table>
+		</>
 	)
 }
 

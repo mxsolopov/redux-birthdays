@@ -7,9 +7,8 @@ import Notifications from './components/Notifications'
 const App = () => {
 	return (
 		<div className='container'>
-			<h1>Дни рождения родственников</h1>
-			<Table />
 			<UserForm />
+			<Table />
 			<Notifications />
 		</div>
 	)

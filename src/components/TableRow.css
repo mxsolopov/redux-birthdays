@@ -10,6 +10,28 @@ td {
 .edit-btn,
 .delete-btn {
 	width: 40px;
+	height: 40px;
 	margin-left: 5px;
 	margin-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 5px;
+	border-radius: 50%;
+	border: none;
+	color: white;
+}
+
+.delete-btn {
+	background-color: #e02828;
+}
+
+.edit-btn {
+	background-color: #5cbc84;
+}
+
+.edit-input {
+	padding: 12px;
+	width: 100%;
+	border-radius: 99px;
+	border: 1px solid #c4cccc;
+	background-color: #f4f4fc;
 }

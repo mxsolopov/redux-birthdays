@@ -1,16 +1,35 @@
 .notification {
-	border: 1px solid black;
-	padding: 10px;
+	padding: 20px;
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	width: 400px;
 	justify-content: space-between;
 	align-items: center;
 	animation: 1s linear 0s infinite pulse;
 	background: white;
+	border: 1px solid #c4cccc;
+	border-radius: 12px;
+	box-shadow: 5px 5px 14px 1px rgba(0, 0, 0, 0.14);
+}
+
+.notification span {
+	text-align: center;
+}
+
+.notification .animation {
+	width: 100px;
 }
 
 .notification button {
-	width: 40px;
+	margin-top: 20px;
+	width: 100px;
+	padding: 12px;
+	border-radius: 99px;
+	background-color: #5484f4;
+	color: white;
+	border: none;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes pulse {

@@ -1,9 +1,10 @@
 import './UserForm.css'
 import { nanoid } from '@reduxjs/toolkit'
-
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../store/usersSlice'
+import calcYearsNum from '../functions/calcYearsNum'
+import giftsVariants from '../functions/giftVariants'
 
 const UserForm = () => {
 	const initUser = {
@@ -11,6 +12,8 @@ const UserForm = () => {
 		date: '',
 		id: nanoid(),
 		sex: 'male',
+		gifts: '',
+		currentGift: '',
 	}
 	const [user, setUser] = useState(initUser)
 	const [disable, setDisable] = useState(true)
@@ -25,17 +28,30 @@ const UserForm = () => {
 		}
 	}
 
+	const getGifts = (name, date, sex) => {
+		let gifts
+		const age = calcYearsNum(date)
+		for (let [key, elem] of giftsVariants[sex][name[0].toLowerCase()]) {
+			if (key[0] <= age && key[1] >= age) {
+				gifts = elem
+				break
+			}
+		}
+		return gifts
+	}
+
 	const namePattern = /^[А-ЯЁа-яё ]+$/
 
 	return (
 		<>
-			<div className='wrapper'>
-				<div>
+			<div className='form'>
+				<div className='form-item-wrap'>
 					<label htmlFor='name-input'>Имя:</label>
 					<input
 						id='name-input'
 						type='text'
 						value={user.name}
+						placeholder='Иванов Иван'
 						onChange={event => {
 							const value = event.target.value
 							if (value === '' || namePattern.test(value)) {
@@ -48,7 +64,6 @@ const UserForm = () => {
 						}}
 						onBlur={() => checkDisableButton()}
 					/>
-					<br />
 					<div className='sex-wrapper'>
 						<div>
 							<input
@@ -76,7 +91,7 @@ const UserForm = () => {
 						</div>
 					</div>
 				</div>
-				<div>
+				<div className='form-item-wrap'>
 					<label htmlFor='date-input'>Дата рождения:</label>
 					<input
 						id='date-input'
@@ -89,16 +104,24 @@ const UserForm = () => {
 						onBlur={() => checkDisableButton()}
 					/>
 				</div>
-				<button
-					onClick={() => {
-						dispatch(addUser(user))
-						setUser(initUser)
-						setDisable(true)
-					}}
-					disabled={disable}
-				>
-					Добавить
-				</button>
+				<div className='form-item-wrap'>
+					<button
+						className='add-button'
+						onClick={() => {
+							dispatch(
+								addUser({
+									...user,
+									gifts: getGifts(user.name, user.date, user.sex),
+								})
+							)
+							setUser(initUser)
+							setDisable(true)
+						}}
+						disabled={disable}
+					>
+						Добавить
+					</button>
+				</div>
 			</div>
 		</>
 	)

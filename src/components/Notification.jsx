@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeSound } from '../store/soundSlice'
 import { changeNotification } from '../store/notificationSlice'
+import calcYearsNum from '../functions/calcYearsNum'
+import Lottie from 'lottie-react'
+import gift from '../lottie/gift.json'
 
 const Notification = ({ user, now, play, stop }) => {
 	const sound = useSelector(state => state.sound.sound)
@@ -27,9 +30,13 @@ const Notification = ({ user, now, play, stop }) => {
 	}
 
 	if (threeDaysCond) {
-		text = `День Рождения ${user.name} через 3 дня`
+		text = `День Рождения у ${
+			user.name
+		} будет через 3 дня, ему (ей) исполняется ${calcYearsNum(user.date)} лет`
 	} else if (todayCond) {
-		text = `Сегодня День Рождения ${user.name}`
+		text = `Сегодня День Рождения у ${
+			user.name
+		}, ему (ей) исполняется ${calcYearsNum(user.date)} лет`
 	}
 
 	useEffect(() => {
@@ -43,6 +50,9 @@ const Notification = ({ user, now, play, stop }) => {
 
 		return (
 			<div className='notification'>
+				<div className='animation'>
+					<Lottie animationData={gift} />
+				</div>
 				<span>{text}</span>
 				<button
 					onClick={() => {

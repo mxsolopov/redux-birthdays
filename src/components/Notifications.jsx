@@ -7,7 +7,7 @@ import useSound from 'use-sound'
 import alarm from '../sounds/alarm.mp3'
 
 const Notifications = () => {
-	const [play, { stop }] = useSound(alarm)
+	const [play, { stop }] = useSound(alarm, { volume: 0.25 })
 	const users = useSelector(state => state.users.users)
 	const notification = useSelector(state => state.notification.notification)
 	let now = new Date()
