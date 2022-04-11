@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.58a8a206.css",
-    "main.js": "/static/js/main.2c23f6f3.js",
-    "static/js/845.a2352bb8.chunk.js": "/static/js/845.a2352bb8.chunk.js",
-    "static/js/787.27979d97.chunk.js": "/static/js/787.27979d97.chunk.js",
-    "static/media/alarm.mp3": "/static/media/alarm.d106cb82c41f9450602a.mp3",
-    "index.html": "/index.html",
-    "main.58a8a206.css.map": "/static/css/main.58a8a206.css.map",
-    "main.2c23f6f3.js.map": "/static/js/main.2c23f6f3.js.map",
-    "845.a2352bb8.chunk.js.map": "/static/js/845.a2352bb8.chunk.js.map",
-    "787.27979d97.chunk.js.map": "/static/js/787.27979d97.chunk.js.map"
+    "main.css": "/redux-birthdays/static/css/main.58a8a206.css",
+    "main.js": "/redux-birthdays/static/js/main.319c114c.js",
+    "static/js/845.a2352bb8.chunk.js": "/redux-birthdays/static/js/845.a2352bb8.chunk.js",
+    "static/js/787.27979d97.chunk.js": "/redux-birthdays/static/js/787.27979d97.chunk.js",
+    "static/media/alarm.mp3": "/redux-birthdays/static/media/alarm.d106cb82c41f9450602a.mp3",
+    "index.html": "/redux-birthdays/index.html",
+    "main.58a8a206.css.map": "/redux-birthdays/static/css/main.58a8a206.css.map",
+    "main.319c114c.js.map": "/redux-birthdays/static/js/main.319c114c.js.map",
+    "845.a2352bb8.chunk.js.map": "/redux-birthdays/static/js/845.a2352bb8.chunk.js.map",
+    "787.27979d97.chunk.js.map": "/redux-birthdays/static/js/787.27979d97.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.58a8a206.css",
-    "static/js/main.2c23f6f3.js"
+    "static/js/main.319c114c.js"
   ]
 }
